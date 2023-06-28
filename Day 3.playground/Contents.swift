@@ -110,3 +110,4 @@ enum Weekday {
 var day = Weekday.monday
 day = .tuesday
 day = .friday
+
