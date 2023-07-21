@@ -11,19 +11,25 @@ struct ChoiceImage: View {
     var choice: String
     
     var body: some View {
-        Image(systemName: "rock")
-            .imageScale(.large)
-            .foregroundStyle(.tint)
-        
-        Image(systemName: "paper")
-            .imageScale(.large)
-            .foregroundStyle(.tint)
-        
-        Image(systemName: "scissors")
-            .imageScale(.large)
-            .foregroundStyle(.tint)
+        switch choice {
+            case "Rock":
+                Text("🪨")
+                    .foregroundStyle(.tint)
+                    .shadow(radius: 5)
+            case "Paper":
+                Text("📄")
+                    .foregroundStyle(.tint)
+                    .shadow(radius: 5)
+            case "Scissors":
+                Text("✂️")
+                    .foregroundStyle(.tint)
+                    .shadow(radius: 5)
+        default:
+            EmptyView()
+        }
     }
 }
+
 struct ContentView: View {
     @State private var choices = ["Rock", "Paper", "Scissors"]
     @State private var correctAnswer = Int.random(in: 0...2)
@@ -39,11 +45,18 @@ struct ContentView: View {
         VStack {
             Spacer()
             
-            Text("Make your Choice")
+            Text("Rock, Paper, or Scissors?")
                 .font(.largeTitle.bold())
                 .foregroundColor(.black)
             
             VStack(spacing: 15){
+                VStack {
+                    Text("Make Your Choice")
+                        .foregroundStyle(.secondary)
+                        .font(.subheadline.weight(.heavy))
+                    Text("Win this time")
+                        .font(.largeTitle.weight(.semibold))
+                }
                 ForEach(0..<3) { number in
                     Button {
                         choiceTapped(number)
@@ -52,10 +65,11 @@ struct ContentView: View {
                     }
                 }
             }
-            .frame(maxWidth: .infinity)
+            .frame(maxWidth: 350)
             .padding(.vertical, 20)
             .background(.regularMaterial)
             .clipShape(RoundedRectangle(cornerRadius: 20))
+            
             
             Spacer()
         }
@@ -64,6 +78,8 @@ struct ContentView: View {
     
     func choiceTapped(_ number: Int) {
         tapCounter += 1
+        
+        let opponentChoice = choices[Int.random(in: 0..<3)]
         
         if number == correctAnswer {
             scoreTitle = "Correct! Congratulations!"
@@ -74,6 +90,8 @@ struct ContentView: View {
         }
         
         showingScore = true
+        
+        
         
         if tapCounter >= 10 {
                     gameOver = true
