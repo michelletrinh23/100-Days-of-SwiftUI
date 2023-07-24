@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Bucket
+   uuid = "22E4FA15-0FC3-410B-A279-5B4602010C67"
+   type = "1"
+   version = "2.0">
+   <Breakpoints>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "BFD1BF82-B6DC-4383-B24F-531A1F0F7819"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "BetterRest/ContentView.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "59"
+            endingLineNumber = "59"
+            landmarkName = "calculateBedtime()"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "BFD1BF82-B6DC-4383-B24F-531A1F0F7819 - fa46f4c81877bfe1"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "BetterRest.ContentView.calculateBedtime() -&gt; ()"
+                  moduleName = "BetterRest"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/michelle/Desktop/Coding/100%20Days%20of%20SwiftUI/BetterRest/BetterRest/ContentView.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "68"
+                  endingLineNumber = "68"
+                  offsetFromSymbolStart = "1468">
+               </Location>
+               <Location
+                  uuid = "BFD1BF82-B6DC-4383-B24F-531A1F0F7819 - fa46f4c81877bfe1"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "BetterRest.ContentView.calculateBedtime() -&gt; ()"
+                  moduleName = "BetterRest"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/michelle/Desktop/Coding/100%20Days%20of%20SwiftUI/BetterRest/BetterRest/ContentView.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "68"
+                  endingLineNumber = "68"
+                  offsetFromSymbolStart = "692">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+   </Breakpoints>
+</Bucket>
