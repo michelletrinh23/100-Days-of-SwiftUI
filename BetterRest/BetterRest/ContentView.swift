@@ -9,9 +9,11 @@ import CoreML
 import SwiftUI
 
 struct ContentView: View {
-    @State private var wakeUp = defaultWakeTime
-    @State private var sleepAmount = 8.0
-    @State private var coffeeAmount = 1
+    @State var wakeUp = defaultWakeTime
+    @State var sleepAmount = 8.0
+    @State var coffeeAmount = 1
+    
+    @State var didChangeValues = false
     
     @State private var alertTitle = ""
     @State private var alertMessage = ""
@@ -30,31 +32,79 @@ struct ContentView: View {
         NavigationView {
             Form {
                 Section(header: Text("When do you want to wake up?")) {
-                    DatePicker("Please enter a time", selection: $wakeUp, displayedComponents: .hourAndMinute)
-                        .labelsHidden()
+                    datePickView(date: $wakeUp, didChange: $didChangeValues)
                 }
                 
                 Section(header: Text("Desired amount of sleep")) {
-                    Stepper("\(sleepAmount.formatted()) hours", value: $sleepAmount, in: 4...12, step: 0.25)
+                    customStepperView(amountToChange: $sleepAmount, didChange: $didChangeValues)
                 }
                 
                 Section(header: Text("Daily coffee intake")) {
-                    Picker("Number of cups", selection: $coffeeAmount) {
-                        ForEach(1...20, id: \.self) { cup in
-                            Text("\(cup) cup\(cup > 1 ? "s" : "")")
-                        }
-                    }
+                    customPickerView(selection: $coffeeAmount, didChange: $didChangeValues)
                 }
+                
                 Text("Your ideal bed time is \(idealBedtime)")
                     .foregroundColor(.primary)
                     .font(.title)
             }
             .navigationTitle("BetterRest")
-            
-            
+            .onChange(of: didChangeValues) {
+                calculateBedtime()
+                didChangeValues = false
+            }
+            .onAppear{
+                calculateBedtime()
+            }
         }
     }
-
+    
+    struct datePickView: View {
+        @Binding var date: Date
+        @Binding var didChange: Bool
+        
+        var body: some View {
+            DatePicker("Please enter a time", selection: $date, displayedComponents: .hourAndMinute)
+                .labelsHidden()
+                .onChange(of: date) {
+                    if !didChange{
+                        didChange = true
+                    }
+                }
+        }
+    }
+    
+    struct customStepperView: View {
+        @Binding var amountToChange: Double
+        @Binding var didChange: Bool
+        
+        var body: some View {
+            Stepper("\(amountToChange.formatted()) hours", value: $amountToChange, in: 4...12, step: 0.25)
+                .onChange(of: amountToChange) {
+                    if !didChange{
+                        didChange = true
+                    }
+                }
+        }
+    }
+    
+    struct customPickerView: View {
+        @Binding var selection: Int
+        @Binding var didChange: Bool
+        
+        var body: some View {
+            Picker("Number of cups", selection: $selection) {
+                ForEach(1...20, id: \.self) { cup in
+                    Text("\(cup) cup\(cup > 1 ? "s" : "")")
+                }
+            }
+            .onChange(of: selection) {
+                if !didChange{
+                    didChange = true
+                }
+            }
+        }
+    }
+    
     func calculateBedtime() {
         do {
             let config = MLModelConfiguration()
@@ -76,7 +126,7 @@ struct ContentView: View {
     }
 }
     
-    
+
 
 #Preview {
     ContentView()
