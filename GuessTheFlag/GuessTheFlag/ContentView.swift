@@ -30,7 +30,7 @@ struct ContentView: View {
     
     @State private var rotationAmounts = [0.0, 0.0, 0.0]
     @State private var flagOpacities = [1.0, 1.0, 1.0]
-    
+    @State private var flagScale = [1.0, 1.0, 1.0]
 
     var body: some View {
         ZStack {
@@ -64,6 +64,7 @@ struct ContentView: View {
                         }
                         .rotation3DEffect(.degrees(rotationAmounts[number]), axis: (x: 0, y: 1, z: 0))
                         .opacity(flagOpacities[number])
+                        .scaleEffect(flagScale[number])
                     }
                 }
                 .frame(maxWidth: .infinity)
@@ -82,6 +83,7 @@ struct ContentView: View {
             }
             .padding()
         }
+        
             .alert(scoreTitle, isPresented: $showingScore) {
                 Button("Continue", action: askQuestion)
             } message: {
@@ -98,9 +100,15 @@ struct ContentView: View {
         withAnimation(.interpolatingSpring(stiffness: 5, damping: 2)) {
                        rotationAmounts[number] += 360
                    }
+        
         flagOpacities = flagOpacities.enumerated().map { index, _ in
             return index == number ? 1.0 : 0.25
                 }
+        
+        flagScale = flagScale.enumerated().map { index, _ in
+            return index == number ? 1.0 : 0.0
+                }
+        
         tapCounter += 1
         
         if number == correctAnswer {
@@ -124,6 +132,7 @@ struct ContentView: View {
         correctAnswer = Int.random(in: 0...2)
         
         flagOpacities = [1.0, 1.0, 1.0]
+        flagScale = [1.0, 1.0, 1.0]
     }
     
     func restartGame() {
