@@ -26,8 +26,6 @@ struct ContentView: View {
     @State private var gameOver = false
     @State private var gameState = ""
     
-    @State private var buttonOrder: [Int] = Array(0..<4)
-    
     var body: some View {
         VStack {
             
@@ -74,14 +72,6 @@ struct ContentView: View {
                         Text("\(currentRow) x \(currentColumn) ?")
                     }
                     
-                    ForEach(buttonOrder, id: \.self) { index in
-                        Button {
-                            choiceTapped(answerOptions[index])
-                        } label: {
-                            Text(String(answerOptions[index]))
-                        }
-                    }
-                    /*
                     VStack {
                         ForEach(0..<3) { number in
                             Button {
@@ -97,9 +87,11 @@ struct ContentView: View {
                             Text(String(currentRow * currentColumn))
                         }
                     }
-                    */
+                
                     .padding()
                     
+                    Text("\(scoreTitle)")
+                        .foregroundColor(.primary)
                     Text("Score: \(userScore)")
                         .foregroundColor(.primary)
                         .font(.title.bold())
@@ -117,10 +109,10 @@ struct ContentView: View {
             Text("Game Over! Your final score is \(userScore)")
         }
     }
-    /*
+    
     func choiceTapped(_ number: Int) {
         
-        if number == currentRow * currentColumn {
+        if number == correctAnswer {
             scoreTitle = "Correct!"
             userScore += 1
         } else {
@@ -131,41 +123,18 @@ struct ContentView: View {
         showingScore = true
         answerOptions.shuffle()
         tapCounter += 1
+        generateRandomQuestion(upTo: questionAmount)
         
         if tapCounter >= questionAmount {
                     gameOver = true
                     gameState = "Game Over"
                 }
     }
-    */
-    func choiceTapped(_ index: Int) {
-            if index == buttonOrder.firstIndex(of: correctAnswer)! {
-                scoreTitle = "Correct!"
-                userScore += 1
-            } else {
-                scoreTitle = "Wrong!"
-                userScore -= 1
-            }
-
-            showingScore = true
-            buttonOrder.shuffle()
-            tapCounter += 1
-
-            if tapCounter >= questionAmount {
-                gameOver = true
-                gameState = "Game Over"
-            }
-        }
-    
-    func generateButtonOrder() {
-           buttonOrder = Array(0..<4).shuffled()
-       }
     
     func generateRandomQuestion(upTo: Int) {
         currentRow = Int.random(in: 1...upToWhat)
         currentColumn = Int.random(in: 1...12)
         correctAnswer = currentRow * currentColumn
-        generateButtonOrder()
     }
     
     func restartGame() {
