@@ -7,6 +7,12 @@
 
 import SwiftUI
 
+extension AnyTransition {
+    static var moveAndFade: AnyTransition {
+        AnyTransition.slide
+    }
+}
+
 struct ContentView: View {
     @State var questionAmount = 5
     @State private var currentRow = 1
@@ -25,42 +31,53 @@ struct ContentView: View {
     @State private var userScore = 0
     @State private var gameOver = false
     @State private var gameState = ""
-    
+        
     var body: some View {
+        Image("miffy3flip")
+            .resizable()
+            .aspectRatio(contentMode: .fit)
+            .frame(maxWidth: .infinity)
+            .edgesIgnoringSafeArea(.horizontal)
+        
         VStack {
-            
-            Text("Let's Multiply!")
+            Text("Let's Multiply with Miffy!")
                 .font(.largeTitle.bold())
                 .foregroundColor(.blue)
+                .fixedSize(horizontal: true, vertical: true)
             
-            VStack {
-                if showIntroQuestions == true {
-                    Text("How many questions do you want to do?")
-                    HStack {
-                        Picker("Choose an amount of questions", selection: $questionAmount) {
-                            ForEach([5, 10, 20], id: \.self) {
-                                Text(String($0))
+            Group {
+                if showIntroQuestions {
+                    VStack {
+                        Text("How many questions do you want to do?")
+                        
+                        HStack {
+                            Picker("Choose an amount of questions", selection: $questionAmount) {
+                                ForEach([5, 10, 20], id: \.self) {
+                                    Text(String($0))
+                                }
+                            }
+                            .pickerStyle(SegmentedPickerStyle())
+                        }
+                        .frame(width: 200)
+                        
+                        
+                        Text("What multiplication table do you want to go up to?")
+                            .fixedSize(horizontal: true, vertical: true)
+                        
+                        Picker("Choose maximum multiplication table", selection: $upToWhat) {
+                            ForEach(1...12, id: \.self) { number in
+                                Text(String(number))
                             }
                         }
-                        .pickerStyle(SegmentedPickerStyle())
-                    }
-                    .frame(width: 200)
-                    
-                    
-                    Text("What multiplication table do you want to go up to?")
-                    
-                    Picker("Choose maximum multiplication table", selection: $upToWhat) {
-                        ForEach(1...12, id: \.self) { number in
-                            Text(String(number))
+                        
+                        Button("Start Game") {
+                                showIntroQuestions = false
+                                showGame = true
                         }
-                    }
-                    
-                    Button("Start Game") {
-                        showIntroQuestions = false
-                        showGame = true
                     }
                 }
             }
+            .transition(.moveAndFade)
             
             VStack(spacing: 15) {
                 if showGame == true {
@@ -90,11 +107,10 @@ struct ContentView: View {
                 
                     .padding()
                     
-                    Text("\(scoreTitle)")
-                        .foregroundColor(.primary)
-                    Text("Score: \(userScore)")
+                    Text("\(scoreTitle)\n Score: \(userScore)")
                         .foregroundColor(.primary)
                         .font(.title.bold())
+                        .fixedSize(horizontal: true, vertical: true)
                 }
             }
             
@@ -108,6 +124,12 @@ struct ContentView: View {
         } message: {
             Text("Game Over! Your final score is \(userScore)")
         }
+        
+        Image("miffy3")
+            .resizable()
+            .aspectRatio(contentMode: .fit)
+            .frame(maxWidth: .infinity)
+            .edgesIgnoringSafeArea(.horizontal)
     }
     
     func choiceTapped(_ number: Int) {
