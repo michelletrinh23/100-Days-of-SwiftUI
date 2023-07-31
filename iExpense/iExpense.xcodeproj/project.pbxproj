@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		322B7E802A7861070010B70D /* Expenses.swift in Sources */ = {isa = PBXBuildFile; fileRef = 322B7E7F2A7861070010B70D /* Expenses.swift */; };
+		32A3C8DC2A7863DC00E415ED /* AddView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32A3C8DB2A7863DC00E415ED /* AddView.swift */; };
 		32B5F2ED2A785F950011A9B8 /* ExpenseItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32B5F2EC2A785F950011A9B8 /* ExpenseItem.swift */; };
 		32CD84402A783B8A00E7E167 /* iExpenseApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32CD843F2A783B8A00E7E167 /* iExpenseApp.swift */; };
 		32CD84422A783B8A00E7E167 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32CD84412A783B8A00E7E167 /* ContentView.swift */; };
@@ -17,6 +18,7 @@
 
 /* Begin PBXFileReference section */
 		322B7E7F2A7861070010B70D /* Expenses.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Expenses.swift; sourceTree = "<group>"; };
+		32A3C8DB2A7863DC00E415ED /* AddView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddView.swift; sourceTree = "<group>"; };
 		32B5F2EC2A785F950011A9B8 /* ExpenseItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExpenseItem.swift; sourceTree = "<group>"; };
 		32CD843C2A783B8A00E7E167 /* iExpense.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iExpense.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		32CD843F2A783B8A00E7E167 /* iExpenseApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = iExpenseApp.swift; sourceTree = "<group>"; };
@@ -57,6 +59,7 @@
 			children = (
 				32CD843F2A783B8A00E7E167 /* iExpenseApp.swift */,
 				32CD84412A783B8A00E7E167 /* ContentView.swift */,
+				32A3C8DB2A7863DC00E415ED /* AddView.swift */,
 				32B5F2EC2A785F950011A9B8 /* ExpenseItem.swift */,
 				322B7E7F2A7861070010B70D /* Expenses.swift */,
 				32CD84432A783B8D00E7E167 /* Assets.xcassets */,
@@ -145,6 +148,7 @@
 			files = (
 				322B7E802A7861070010B70D /* Expenses.swift in Sources */,
 				32CD84422A783B8A00E7E167 /* ContentView.swift in Sources */,
+				32A3C8DC2A7863DC00E415ED /* AddView.swift in Sources */,
 				32B5F2ED2A785F950011A9B8 /* ExpenseItem.swift in Sources */,
 				32CD84402A783B8A00E7E167 /* iExpenseApp.swift in Sources */,
 			);
