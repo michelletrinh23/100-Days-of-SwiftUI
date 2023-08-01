@@ -24,7 +24,7 @@ struct ContentView: View {
     ]
     @State private var currency = "USD"
     @State private var isEditing = false
-
+    
     var body: some View {
         NavigationView {
             VStack {
@@ -35,36 +35,51 @@ struct ContentView: View {
                 }
                 .pickerStyle(MenuPickerStyle())
                 .padding()
-                
+     
                 List {
-                    ForEach(expenses.items) { item in
-                        HStack {
-                            VStack(alignment: .leading) {
-                                Text(item.name)
-                                    .font(.headline)
-                                Text(item.type)
-                            }
-                            
-                            Spacer()
-                            
-                            Text(item.amount, format: .currency(code: currency))
-                        }
+                    Text("Personal")
+                        .foregroundColor(.blue)
+                        .bold()
+                        .font(.title)
+                    
+                    ForEach(personalExpenses) { item in
+                        ExpenseRow(item: item, currency: currency)
                     }
                     .onDelete(perform: removeItems)
                 }
-                .navigationTitle("iExpense")
-                .toolbar {
-                    Button {
-                        showingAddExpense = true
-                    } label: {
-                        Image(systemName: "plus")
+                
+                List {
+                    Text("Business")
+                        .foregroundColor(.blue)
+                        .bold()
+                        .font(.title)
+                    
+                    ForEach(businessExpenses) { item in
+                        ExpenseRow(item: item, currency: currency)
                     }
-                }
-                .sheet(isPresented: $showingAddExpense) {
-                    AddView(expenses: expenses)
+                    .onDelete(perform: removeItems)
                 }
             }
+            .navigationTitle("iExpense")
+            .toolbar {
+                Button {
+                    showingAddExpense = true
+                } label: {
+                    Image(systemName: "plus")
+                }
+            }
+            .sheet(isPresented: $showingAddExpense) {
+                AddView(expenses: expenses)
+            }
         }
+    }
+    
+    var personalExpenses: [ExpenseItem] {
+        expenses.items.filter { $0.type == "Personal" }
+    }
+    
+    var businessExpenses: [ExpenseItem] {
+        expenses.items.filter { $0.type == "Business" }
     }
     
     func removeItems(at offsets: IndexSet) {
@@ -72,6 +87,26 @@ struct ContentView: View {
     }
     
 }
+
+struct ExpenseRow: View {
+    var item: ExpenseItem
+    var currency: String
+
+    var body: some View {
+        HStack {
+            VStack(alignment: .leading) {
+                Text(item.name)
+                    .font(.headline)
+            }
+
+            Spacer()
+
+            Text(item.amount, format: .currency(code: currency))
+        }
+        .foregroundColor(item.color)
+    }
+}
+
 
 #Preview {
     ContentView()
