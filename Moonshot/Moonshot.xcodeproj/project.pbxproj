@@ -7,22 +7,30 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		327810912A798D3300BDFF53 /* MoonshotApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 327810902A798D3300BDFF53 /* MoonshotApp.swift */; };
-		327810932A798D3300BDFF53 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 327810922A798D3300BDFF53 /* ContentView.swift */; };
-		327810952A798D3600BDFF53 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 327810942A798D3600BDFF53 /* Assets.xcassets */; };
-		327810982A798D3600BDFF53 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 327810972A798D3600BDFF53 /* Preview Assets.xcassets */; };
+		327FB4432A7A21F600FDA838 /* Astronaut.swift in Sources */ = {isa = PBXBuildFile; fileRef = 327FB4422A7A21F600FDA838 /* Astronaut.swift */; };
+		32D822642A7A1FDB00F5D439 /* MoonshotApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32D822632A7A1FDB00F5D439 /* MoonshotApp.swift */; };
+		32D822662A7A1FDB00F5D439 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32D822652A7A1FDB00F5D439 /* ContentView.swift */; };
+		32D822682A7A1FDD00F5D439 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 32D822672A7A1FDD00F5D439 /* Assets.xcassets */; };
+		32D8226B2A7A1FDD00F5D439 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 32D8226A2A7A1FDD00F5D439 /* Preview Assets.xcassets */; };
+		32D822732A7A211300F5D439 /* missions.json in Resources */ = {isa = PBXBuildFile; fileRef = 32D822712A7A211300F5D439 /* missions.json */; };
+		32D822742A7A211300F5D439 /* astronauts.json in Resources */ = {isa = PBXBuildFile; fileRef = 32D822722A7A211300F5D439 /* astronauts.json */; };
+		32EB3A382A7A2265003CBF0B /* Bundle-Decodeable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32EB3A372A7A2265003CBF0B /* Bundle-Decodeable.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		3278108D2A798D3300BDFF53 /* Moonshot.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Moonshot.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		327810902A798D3300BDFF53 /* MoonshotApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoonshotApp.swift; sourceTree = "<group>"; };
-		327810922A798D3300BDFF53 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
-		327810942A798D3600BDFF53 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		327810972A798D3600BDFF53 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		327FB4422A7A21F600FDA838 /* Astronaut.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Astronaut.swift; sourceTree = "<group>"; };
+		32D822602A7A1FDB00F5D439 /* Moonshot.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Moonshot.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		32D822632A7A1FDB00F5D439 /* MoonshotApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoonshotApp.swift; sourceTree = "<group>"; };
+		32D822652A7A1FDB00F5D439 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		32D822672A7A1FDD00F5D439 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		32D8226A2A7A1FDD00F5D439 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		32D822712A7A211300F5D439 /* missions.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = missions.json; sourceTree = "<group>"; };
+		32D822722A7A211300F5D439 /* astronauts.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = astronauts.json; sourceTree = "<group>"; };
+		32EB3A372A7A2265003CBF0B /* Bundle-Decodeable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Bundle-Decodeable.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		3278108A2A798D3300BDFF53 /* Frameworks */ = {
+		32D8225D2A7A1FDB00F5D439 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -32,37 +40,41 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		327810842A798D3300BDFF53 = {
+		32D822572A7A1FDB00F5D439 = {
 			isa = PBXGroup;
 			children = (
-				3278108F2A798D3300BDFF53 /* Moonshot */,
-				3278108E2A798D3300BDFF53 /* Products */,
+				32D822622A7A1FDB00F5D439 /* Moonshot */,
+				32D822612A7A1FDB00F5D439 /* Products */,
 			);
 			sourceTree = "<group>";
 		};
-		3278108E2A798D3300BDFF53 /* Products */ = {
+		32D822612A7A1FDB00F5D439 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				3278108D2A798D3300BDFF53 /* Moonshot.app */,
+				32D822602A7A1FDB00F5D439 /* Moonshot.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		3278108F2A798D3300BDFF53 /* Moonshot */ = {
+		32D822622A7A1FDB00F5D439 /* Moonshot */ = {
 			isa = PBXGroup;
 			children = (
-				327810902A798D3300BDFF53 /* MoonshotApp.swift */,
-				327810922A798D3300BDFF53 /* ContentView.swift */,
-				327810942A798D3600BDFF53 /* Assets.xcassets */,
-				327810962A798D3600BDFF53 /* Preview Content */,
+				32D822632A7A1FDB00F5D439 /* MoonshotApp.swift */,
+				32D822652A7A1FDB00F5D439 /* ContentView.swift */,
+				327FB4422A7A21F600FDA838 /* Astronaut.swift */,
+				32EB3A372A7A2265003CBF0B /* Bundle-Decodeable.swift */,
+				32D822722A7A211300F5D439 /* astronauts.json */,
+				32D822712A7A211300F5D439 /* missions.json */,
+				32D822672A7A1FDD00F5D439 /* Assets.xcassets */,
+				32D822692A7A1FDD00F5D439 /* Preview Content */,
 			);
 			path = Moonshot;
 			sourceTree = "<group>";
 		};
-		327810962A798D3600BDFF53 /* Preview Content */ = {
+		32D822692A7A1FDD00F5D439 /* Preview Content */ = {
 			isa = PBXGroup;
 			children = (
-				327810972A798D3600BDFF53 /* Preview Assets.xcassets */,
+				32D8226A2A7A1FDD00F5D439 /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
 			sourceTree = "<group>";
@@ -70,13 +82,13 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		3278108C2A798D3300BDFF53 /* Moonshot */ = {
+		32D8225F2A7A1FDB00F5D439 /* Moonshot */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 3278109B2A798D3600BDFF53 /* Build configuration list for PBXNativeTarget "Moonshot" */;
+			buildConfigurationList = 32D8226E2A7A1FDD00F5D439 /* Build configuration list for PBXNativeTarget "Moonshot" */;
 			buildPhases = (
-				327810892A798D3300BDFF53 /* Sources */,
-				3278108A2A798D3300BDFF53 /* Frameworks */,
-				3278108B2A798D3300BDFF53 /* Resources */,
+				32D8225C2A7A1FDB00F5D439 /* Sources */,
+				32D8225D2A7A1FDB00F5D439 /* Frameworks */,
+				32D8225E2A7A1FDB00F5D439 /* Resources */,
 			);
 			buildRules = (
 			);
@@ -84,25 +96,25 @@
 			);
 			name = Moonshot;
 			productName = Moonshot;
-			productReference = 3278108D2A798D3300BDFF53 /* Moonshot.app */;
+			productReference = 32D822602A7A1FDB00F5D439 /* Moonshot.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
-		327810852A798D3300BDFF53 /* Project object */ = {
+		32D822582A7A1FDB00F5D439 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
 				LastSwiftUpdateCheck = 1500;
 				LastUpgradeCheck = 1500;
 				TargetAttributes = {
-					3278108C2A798D3300BDFF53 = {
+					32D8225F2A7A1FDB00F5D439 = {
 						CreatedOnToolsVersion = 15.0;
 					};
 				};
 			};
-			buildConfigurationList = 327810882A798D3300BDFF53 /* Build configuration list for PBXProject "Moonshot" */;
+			buildConfigurationList = 32D8225B2A7A1FDB00F5D439 /* Build configuration list for PBXProject "Moonshot" */;
 			compatibilityVersion = "Xcode 14.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -110,42 +122,46 @@
 				en,
 				Base,
 			);
-			mainGroup = 327810842A798D3300BDFF53;
-			productRefGroup = 3278108E2A798D3300BDFF53 /* Products */;
+			mainGroup = 32D822572A7A1FDB00F5D439;
+			productRefGroup = 32D822612A7A1FDB00F5D439 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				3278108C2A798D3300BDFF53 /* Moonshot */,
+				32D8225F2A7A1FDB00F5D439 /* Moonshot */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
-		3278108B2A798D3300BDFF53 /* Resources */ = {
+		32D8225E2A7A1FDB00F5D439 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				327810982A798D3600BDFF53 /* Preview Assets.xcassets in Resources */,
-				327810952A798D3600BDFF53 /* Assets.xcassets in Resources */,
+				32D8226B2A7A1FDD00F5D439 /* Preview Assets.xcassets in Resources */,
+				32D822732A7A211300F5D439 /* missions.json in Resources */,
+				32D822682A7A1FDD00F5D439 /* Assets.xcassets in Resources */,
+				32D822742A7A211300F5D439 /* astronauts.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
-		327810892A798D3300BDFF53 /* Sources */ = {
+		32D8225C2A7A1FDB00F5D439 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				327810932A798D3300BDFF53 /* ContentView.swift in Sources */,
-				327810912A798D3300BDFF53 /* MoonshotApp.swift in Sources */,
+				327FB4432A7A21F600FDA838 /* Astronaut.swift in Sources */,
+				32EB3A382A7A2265003CBF0B /* Bundle-Decodeable.swift in Sources */,
+				32D822662A7A1FDB00F5D439 /* ContentView.swift in Sources */,
+				32D822642A7A1FDB00F5D439 /* MoonshotApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin XCBuildConfiguration section */
-		327810992A798D3600BDFF53 /* Debug */ = {
+		32D8226C2A7A1FDD00F5D439 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -208,7 +224,7 @@
 			};
 			name = Debug;
 		};
-		3278109A2A798D3600BDFF53 /* Release */ = {
+		32D8226D2A7A1FDD00F5D439 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -264,7 +280,7 @@
 			};
 			name = Release;
 		};
-		3278109C2A798D3600BDFF53 /* Debug */ = {
+		32D8226F2A7A1FDD00F5D439 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
@@ -293,7 +309,7 @@
 			};
 			name = Debug;
 		};
-		3278109D2A798D3600BDFF53 /* Release */ = {
+		32D822702A7A1FDD00F5D439 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
@@ -325,25 +341,25 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		327810882A798D3300BDFF53 /* Build configuration list for PBXProject "Moonshot" */ = {
+		32D8225B2A7A1FDB00F5D439 /* Build configuration list for PBXProject "Moonshot" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				327810992A798D3600BDFF53 /* Debug */,
-				3278109A2A798D3600BDFF53 /* Release */,
+				32D8226C2A7A1FDD00F5D439 /* Debug */,
+				32D8226D2A7A1FDD00F5D439 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		3278109B2A798D3600BDFF53 /* Build configuration list for PBXNativeTarget "Moonshot" */ = {
+		32D8226E2A7A1FDD00F5D439 /* Build configuration list for PBXNativeTarget "Moonshot" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				3278109C2A798D3600BDFF53 /* Debug */,
-				3278109D2A798D3600BDFF53 /* Release */,
+				32D8226F2A7A1FDD00F5D439 /* Debug */,
+				32D822702A7A1FDD00F5D439 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
-	rootObject = 327810852A798D3300BDFF53 /* Project object */;
+	rootObject = 32D822582A7A1FDB00F5D439 /* Project object */;
 }

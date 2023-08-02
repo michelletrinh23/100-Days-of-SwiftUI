@@ -7,32 +7,15 @@
 
 import SwiftUI
 
-struct User: Codable {
-    let name: String
-    let address: Address
-}
-
-struct Address: Codable {
-    let street: String
-    let city: String
-}
-
 struct ContentView: View {
-    let layout = [
-        GridItem(.adaptive(minimum: 80, maximum: 120)),
-    ]
-    
+    let astronauts = Bundle.main.decode("astronauts.json")
+
     var body: some View {
-        ScrollView(.horizontal) {
-            LazyHGrid(rows: layout) {
-                ForEach(0..<1000) {
-                    Text("Item \($0)")
-                }
-            }
-        }
+        Text("\(astronauts.count)")
+        .padding()
     }
 }
- 
+
 #Preview {
     ContentView()
 }
