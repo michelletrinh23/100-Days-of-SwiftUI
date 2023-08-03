@@ -15,6 +15,7 @@ struct MissionView: View {
     
     let mission: Mission
     let crew: [CrewMember]
+    let launchDate: Date?
 
     var body: some View {
         GeometryReader { geometry in
@@ -26,7 +27,11 @@ struct MissionView: View {
                         .frame(maxWidth: geometry.size.width * 0.6)
                         .padding(.top)
                     
-                    
+                    if let launchDate = launchDate {
+                        Text("Launch Date: \(launchDate)")
+                    } else {
+                        Text("Launch Date: N/A")
+                    }
                     
                     VStack(alignment: .leading) {
                         Rectangle()
@@ -90,7 +95,7 @@ struct MissionView: View {
         .background(.darkBackground)
     }
     
-    init(mission: Mission, astronauts: [String: Astronaut]) {
+    init(mission: Mission, astronauts: [String: Astronaut], launchDate: Date) {
         self.mission = mission
 
         self.crew = mission.crew.map { member in
@@ -100,15 +105,18 @@ struct MissionView: View {
                 fatalError("Missing \(member.name)")
             }
         }
+        self.launchDate = mission.launchDate
     }
 }
 
 struct MissionView_Previews: PreviewProvider {
     static let missions: [Mission] = Bundle.main.decode("missions.json")
     static let astronauts: [String: Astronaut] = Bundle.main.decode("astronauts.json")
+    static let launchDate: Date? = nil
 
     static var previews: some View {
-        MissionView(mission: missions[0], astronauts: astronauts)
+        MissionView(mission: missions[0], astronauts: astronauts, launchDate: Date())
             .preferredColorScheme(.dark)
     }
 }
+ 
