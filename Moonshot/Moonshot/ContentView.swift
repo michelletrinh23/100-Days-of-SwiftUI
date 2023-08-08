@@ -7,6 +7,7 @@
 
 import SwiftUI
 
+
 struct ContentView: View {
     let astronauts: [String: Astronaut] = Bundle.main.decode("astronauts.json")
     let missions: [Mission] = Bundle.main.decode("missions.json")
@@ -15,7 +16,9 @@ struct ContentView: View {
     let columns = [
         GridItem(.adaptive(minimum: 150))
     ]
-
+    
+    var showingGrid = true
+        
     var body: some View {
         NavigationView {
             ScrollView {
@@ -58,9 +61,20 @@ struct ContentView: View {
             .navigationTitle("Moonshot")
             .background(.darkBackground)
             .preferredColorScheme(.dark)
+            .toolbar {
+                ToolbarItem {
+                    NavigationLink {
+                        ContentListView()
+                    } label: {
+                        Text("Switch View")
+                    }
+                }
+            }
         }
+        
     }
 }
+
 
 #Preview {
     ContentView()

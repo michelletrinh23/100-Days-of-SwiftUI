@@ -49,8 +49,8 @@ struct CrewView: View {
 }
 
 struct CrewView_Previews: PreviewProvider {
-    static let crew = CrewMember(role: "Smart Person", astronaut: Astronaut(id: "123", name: "Michelle", description: "Smart"))
-    static let crew2 = CrewMember(role: "Smart Person", astronaut: Astronaut(id: "123", name: "Michelle", description: "Smart"))
+    static let crew = CrewMember(role: "Astronaut", astronaut: Astronaut(id: "123", name: "Neil", description: "Smart"))
+    static let crew2 = CrewMember(role: "Chef", astronaut: Astronaut(id: "234", name: "Joyce", description: "Smart"))
     
     static var previews: some View {
         CrewView(crew: [crew, crew2])

@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		325E11842A7B057F00E1867A /* Color-Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 325E11832A7B057F00E1867A /* Color-Theme.swift */; };
+		325ED2772A7DDAC000CB1C62 /* ContentListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 325ED2762A7DDAC000CB1C62 /* ContentListView.swift */; };
 		327467612A7C5A4D000A3A37 /* CrewView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 327467602A7C5A4D000A3A37 /* CrewView.swift */; };
 		327488FC2A7A3BA200CFBE69 /* Mission.swift in Sources */ = {isa = PBXBuildFile; fileRef = 327488FB2A7A3BA200CFBE69 /* Mission.swift */; };
 		327FB4432A7A21F600FDA838 /* Astronaut.swift in Sources */ = {isa = PBXBuildFile; fileRef = 327FB4422A7A21F600FDA838 /* Astronaut.swift */; };
@@ -24,6 +25,7 @@
 
 /* Begin PBXFileReference section */
 		325E11832A7B057F00E1867A /* Color-Theme.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Color-Theme.swift"; sourceTree = "<group>"; };
+		325ED2762A7DDAC000CB1C62 /* ContentListView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContentListView.swift; sourceTree = "<group>"; };
 		327467602A7C5A4D000A3A37 /* CrewView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CrewView.swift; sourceTree = SOURCE_ROOT; };
 		327488FB2A7A3BA200CFBE69 /* Mission.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Mission.swift; sourceTree = "<group>"; };
 		327FB4422A7A21F600FDA838 /* Astronaut.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Astronaut.swift; sourceTree = "<group>"; };
@@ -69,6 +71,7 @@
 		32D822622A7A1FDB00F5D439 /* Moonshot */ = {
 			isa = PBXGroup;
 			children = (
+				325ED2762A7DDAC000CB1C62 /* ContentListView.swift */,
 				32D822632A7A1FDB00F5D439 /* MoonshotApp.swift */,
 				32D822652A7A1FDB00F5D439 /* ContentView.swift */,
 				32D3B3A12A7B82A5005C95EE /* MissionView.swift */,
@@ -166,6 +169,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				325ED2772A7DDAC000CB1C62 /* ContentListView.swift in Sources */,
 				32D3B3A22A7B82A5005C95EE /* MissionView.swift in Sources */,
 				327467612A7C5A4D000A3A37 /* CrewView.swift in Sources */,
 				327FB4432A7A21F600FDA838 /* Astronaut.swift in Sources */,
