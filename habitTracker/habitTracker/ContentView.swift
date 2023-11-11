@@ -11,7 +11,7 @@ struct ContentView: View {
     
     @State private var habitTitle: String = ""
     @State private var habitDescription: String = ""
-    @State private var addedHabits: [String] = []
+    @State private var habitTitleDescription: [String:String] = [:]
     var helper: String { return "\(addedHabits)" }
     
     
@@ -25,12 +25,12 @@ struct ContentView: View {
                     TextField("Type activity description here", text: $habitDescription)
                     
                     Button("Add Habit") {
-                        addedHabits.append(habitTitle)
+                        habitTitleDescription[habitTitle] = habitDescription
                         habitTitle = ""
                         habitDescription = ""
                     }
                     
-                    Text("Activities: \(helper)")
+                    Text("Activities: \(habitTitleDescription.description)")
                 }
                 .padding()
             }
