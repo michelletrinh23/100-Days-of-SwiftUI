@@ -12,27 +12,45 @@ struct ContentView: View {
     @State private var habitTitle: String = ""
     @State private var habitDescription: String = ""
     @State private var habitTitleDescription: [String:String] = [:]
-    var helper: String { return "\(addedHabits)" }
-    
+    @State private var habitMenu: [String] = []
+    var helper: String { return "\(habitMenu)" }
     
     var body: some View {
         NavigationView {
             ScrollView {
                 VStack {
-                    Text("What activity would you like to track?")
-                    
-                    TextField("Type activity here", text: $habitTitle)
-                    TextField("Type activity description here", text: $habitDescription)
-                    
-                    Button("Add Habit") {
-                        habitTitleDescription[habitTitle] = habitDescription
-                        habitTitle = ""
-                        habitDescription = ""
+                    VStack {
+                        Text("What activity would you like to track?")
+                        
+                        TextField("Type activity here", text: $habitTitle)
+                        TextField("Type activity description here", text: $habitDescription)
+                        
+                        Button("Add Habit") {
+                            habitTitleDescription[habitTitle] = habitDescription
+                            habitMenu.append(habitTitle)
+                            habitTitle = ""
+                            habitDescription = ""
+                            
+                        }
+                        
                     }
                     
-                    Text("Activities: \(habitTitleDescription.description)")
+                    Spacer()
+                    
+                    
+                    Text("Activities: \(helper)")
+                    
+                    ForEach(habitMenu, id: \.self) { title in
+                        Button {
+                           //what happens when the button is pressed
+                        } label: {
+                           Text(title)
+                        }
+                    }
+                
+                    
+                    .padding()
                 }
-                .padding()
             }
             .navigationTitle("Habit Tracker")
         }
