@@ -7,13 +7,25 @@
 
 import SwiftUI
 
+struct activityStruct: Codable, Identifiable, Equatable, Hashable {
+    var id: UUID
+    var title: String
+    var description: String
+    var completionCount: Int
+}
+
+class activityTitles: ObservableObject {
+    @Published var activities: [activityStruct] = []
+}
+
 struct ContentView: View {
     
     @State private var habitTitle: String = ""
     @State private var habitDescription: String = ""
-    @State private var habitTitleDescription: [String:String] = [:]
-    @State private var habitMenu: [String] = []
-    var helper: String { return "\(habitMenu)" }
+    @StateObject private var data = activityTitles()
+    //@State private var habitTitleDescription: [String:String] = [:]
+    //@State private var habitMenu: [String] = []
+    //var helper: String { return "\(habitMenu)" }
     
     var body: some View {
         NavigationView {
@@ -26,25 +38,20 @@ struct ContentView: View {
                         TextField("Type activity description here", text: $habitDescription)
                         
                         Button("Click to add activity") {
-                            habitTitleDescription[habitTitle] = habitDescription
-                            habitMenu.append(habitTitle)
+                            let newActivity = activityStruct(id: UUID(), title: habitTitle, description: habitDescription, completionCount: 0)
+                            data.activities.append(newActivity)
                             habitTitle = ""
                             habitDescription = ""
-                            
                         }
                         
                     }
                     
                     
-                    
-                    Text("All Activities: \(helper)")
-                    
-                    
                     Text("Habit Menu")
                     
-                    ForEach(habitMenu, id: \.self) { title in
-                        NavigationLink(destination: DetailContentView(title: title, description: habitTitleDescription[title] ?? "")) {
-                            Text(title)
+                    ForEach(data.activities, id: \.self) { activity in
+                        NavigationLink(destination: DetailContentView(title: activity.title, description: activity.description)) {
+                            Text(activity.title)
                         }
                     }
                     
