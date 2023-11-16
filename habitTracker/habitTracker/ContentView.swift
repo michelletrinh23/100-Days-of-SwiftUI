@@ -20,12 +20,12 @@ struct ContentView: View {
             ScrollView {
                 VStack {
                     VStack {
-                        Text("What activity would you like to track?")
+                        Text("Add a Habit")
                         
                         TextField("Type activity here", text: $habitTitle)
                         TextField("Type activity description here", text: $habitDescription)
                         
-                        Button("Add Habit") {
+                        Button("Click to add activity") {
                             habitTitleDescription[habitTitle] = habitDescription
                             habitMenu.append(habitTitle)
                             habitTitle = ""
@@ -35,25 +35,34 @@ struct ContentView: View {
                         
                     }
                     
-                    Spacer()
                     
                     
-                    Text("Activities: \(helper)")
+                    Text("All Activities: \(helper)")
+                    
+                    
+                    Text("Habit Menu")
                     
                     ForEach(habitMenu, id: \.self) { title in
-                        Button {
-                           //what happens when the button is pressed
-                        } label: {
-                           Text(title)
+                        NavigationLink(destination: DetailContentView(title: title, description: habitTitleDescription[title] ?? "")) {
+                            Text(title)
                         }
                     }
-                
                     
                     .padding()
                 }
             }
             .navigationTitle("Habit Tracker")
         }
+    }
+}
+
+struct DetailContentView: View {
+    var title: String
+    var description: String
+
+    var body: some View {
+        Text("Description of habit: \(description)")
+            .navigationTitle("Habit: \(title)")
     }
 }
 
