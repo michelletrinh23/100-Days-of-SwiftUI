@@ -50,7 +50,7 @@ struct ContentView: View {
                     Text("Habit Menu")
                     
                     ForEach(data.activities, id: \.self) { activity in
-                        NavigationLink(destination: DetailContentView(title: activity.title, description: activity.description)) {
+                        NavigationLink(destination: DetailContentView(data: data, title: activity.title, description: activity.description)) {
                             Text(activity.title)
                         }
                     }
@@ -64,12 +64,38 @@ struct ContentView: View {
 }
 
 struct DetailContentView: View {
+    @ObservedObject var data: activityTitles
     var title: String
     var description: String
-
+    @State private var completionCount: Int
+    
+    init(data: activityTitles, title: String, description: String) {
+        self.data = data
+        self.title = title
+        self.description = description
+        _completionCount = State(initialValue: data.activities.first(where: { $0.title == title })?.completionCount ?? 0)
+    }
+    
     var body: some View {
-        Text("Description of habit: \(description)")
-            .navigationTitle("Habit: \(title)")
+        VStack {
+            Text("Description of habit: \(description)")
+                .navigationTitle("Habit: \(title)")
+            
+            Button("Click each time you complete the activity!") {
+                incrementCompletion()
+            }
+            
+            Text("Completion Count: \(completionCount)")
+        }
+        .navigationTitle("Habit: \(title)")
+    }
+    
+    func incrementCompletion() {
+        if let index = data.activities.firstIndex(where: { $0.title == title }) {
+            var updatedActivity = data.activities[index]
+            updatedActivity.completionCount += 1
+            data.activities[index] = updatedActivity
+        }
     }
 }
 
