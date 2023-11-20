@@ -12,6 +12,8 @@ struct CheckoutView: View {
     
     @State private var confirmationMessage = ""
     @State private var showingConfirmation = false
+    @State private var showingErrorAlert = false
+    @State private var errorMessage = ""
 
     var body: some View {
         ScrollView {
@@ -44,6 +46,11 @@ struct CheckoutView: View {
         } message: {
             Text(confirmationMessage)
         }
+        .alert("Checkout Failed", isPresented: $showingErrorAlert) {
+            Button("OK") { }
+        } message: {
+            Text(errorMessage)
+        }
     }
     
     func placeOrder() async {
@@ -62,8 +69,11 @@ struct CheckoutView: View {
             
             let decodedOrder = try JSONDecoder().decode(Order.self, from: data)
             confirmationMessage = "Your order for \(decodedOrder.quantity)x \(Order.types[decodedOrder.type].lowercased()) cupcakes is on its way!"
-            showingConfirmation = true        } catch {
+            showingConfirmation = true
+        } catch {
             print("Checkout failed: \(error.localizedDescription)")
+            errorMessage = "There was an error placing your order. Please try again."
+                showingErrorAlert = true
         }
     }
 }
