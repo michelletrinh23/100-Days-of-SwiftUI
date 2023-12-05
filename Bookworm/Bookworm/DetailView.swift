@@ -37,7 +37,11 @@ struct DetailView: View {
 
             Text(book.review)
                 .padding()
-
+            
+            Text("Date Reviewed: \(formattedDate(book.date))")
+                .multilineTextAlignment(.center)
+                .padding()
+            
             RatingView(rating: .constant(book.rating))
                 .font(.largeTitle)
         }
@@ -61,13 +65,25 @@ struct DetailView: View {
         modelContext.delete(book)
         dismiss()
     }
+    
+    func formattedDate(_ date: Date?) -> String {
+        guard let date = date else {
+            return "N/A"
+        }
+
+        let formatter = DateFormatter()
+        formatter.dateStyle = .medium
+        formatter.timeStyle = .short
+
+        return formatter.string(from: date)
+    }
 }
 
 #Preview {
     do {
         let config = ModelConfiguration(isStoredInMemoryOnly: true)
         let container = try ModelContainer(for: Book.self, configurations: config)
-        let example = Book(title: "Test Book", author: "Test Author", genre: "Fantasy", review: "This was a great book; I really enjoyed it.", rating: 4)
+        let example = Book(title: "Test Book", author: "Test Author", genre: "Fantasy", review: "This was a great book; I really enjoyed it.", rating: 4, date: Date())
 
         return DetailView(book: example)
             .modelContainer(container)
