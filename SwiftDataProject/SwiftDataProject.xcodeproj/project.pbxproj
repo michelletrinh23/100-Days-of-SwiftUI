@@ -16,6 +16,7 @@
 		D536A3062B22E45D00E889C8 /* SwiftDataProjectUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D536A3052B22E45D00E889C8 /* SwiftDataProjectUITestsLaunchTests.swift */; };
 		D536A3132B22E70E00E889C8 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = D536A3122B22E70E00E889C8 /* User.swift */; };
 		D536A3172B2302F200E889C8 /* UsersView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D536A3162B2302F200E889C8 /* UsersView.swift */; };
+		D536A3192B24642A00E889C8 /* Job.swift in Sources */ = {isa = PBXBuildFile; fileRef = D536A3182B24642A00E889C8 /* Job.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -48,6 +49,7 @@
 		D536A3052B22E45D00E889C8 /* SwiftDataProjectUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftDataProjectUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		D536A3122B22E70E00E889C8 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		D536A3162B2302F200E889C8 /* UsersView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsersView.swift; sourceTree = "<group>"; };
+		D536A3182B24642A00E889C8 /* Job.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Job.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -102,6 +104,7 @@
 				D536A2EA2B22E45C00E889C8 /* ContentView.swift */,
 				D536A3162B2302F200E889C8 /* UsersView.swift */,
 				D536A3122B22E70E00E889C8 /* User.swift */,
+				D536A3182B24642A00E889C8 /* Job.swift */,
 				D536A2EC2B22E45D00E889C8 /* Assets.xcassets */,
 				D536A2EE2B22E45D00E889C8 /* Preview Content */,
 			);
@@ -267,6 +270,7 @@
 				D536A2E92B22E45C00E889C8 /* SwiftDataProjectApp.swift in Sources */,
 				D536A3132B22E70E00E889C8 /* User.swift in Sources */,
 				D536A3172B2302F200E889C8 /* UsersView.swift in Sources */,
+				D536A3192B24642A00E889C8 /* Job.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
