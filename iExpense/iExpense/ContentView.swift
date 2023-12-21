@@ -22,6 +22,7 @@ class ExpenseItem {
 
 struct ContentView: View {
     @State private var showingAddExpense = false
+    @State private var expenseType = "All"
 
     @State private var sortOrder = [
         SortDescriptor(\ExpenseItem.name),
@@ -30,11 +31,25 @@ struct ContentView: View {
     
     var body: some View {
         NavigationStack {
-            ExpensesList(sortOrder: sortOrder)
+            ExpensesList(type: expenseType, sortOrder: sortOrder)
                 .navigationTitle("iExpense")
                 .toolbar {
                     Button("Add Expense", systemImage: "plus") {
                         showingAddExpense = true
+                    }
+                    
+                    Menu("Filter", systemImage: "line.3.horizontal.decrease.circle") {
+                        Picker("Filter", selection: $expenseType) {
+                            Text("Show All Expenses")
+                                .tag("All")
+
+                            Divider()
+
+                            ForEach(AddView.types, id: \.self) { type in
+                                Text(type)
+                                    .tag(type)
+                            }
+                        }
                     }
                     
                     Menu("Sort", systemImage: "arrow.up.arrow.down") {
