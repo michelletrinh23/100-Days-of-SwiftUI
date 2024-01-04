@@ -5,41 +5,31 @@
 //  Created by Michelle Trinh on 1/3/24.
 //
 
+import MapKit
 import SwiftUI
 
-struct LoadingView: View {
-    var body: some View {
-        Text("Loading...")
-    }
-}
-
-struct SuccessView: View {
-    var body: some View {
-        Text("Success!")
-    }
-}
-
-struct FailedView: View {
-    var body: some View {
-        Text("Failed.")
-    }
+struct Location: Identifiable {
+    let id = UUID()
+    var name: String
+    var coordinate: CLLocationCoordinate2D
 }
 
 struct ContentView: View {
-    enum LoadingState {
-        case loading, success, failed
-    }
+    let locations = [
+        Location(name: "Buckingham Palace", coordinate: CLLocationCoordinate2D(latitude: 51.501, longitude: -0.141)),
+        Location(name: "Tower of London", coordinate: CLLocationCoordinate2D(latitude: 51.508, longitude: -0.076))
+    ]
     
-    @State private var loadingState = LoadingState.loading
-
     var body: some View {
-        switch loadingState {
-        case .loading:
-            LoadingView()
-        case .success:
-            SuccessView()
-        case .failed:
-            FailedView()
+        VStack {
+            MapReader { proxy in
+                Map()
+                    .onTapGesture { position in
+                        if let coordinate = proxy.convert(position, from: .local) {
+                            print(coordinate)
+                        }
+                    }
+            }
         }
     }
 }
