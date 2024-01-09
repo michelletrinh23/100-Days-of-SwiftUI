@@ -10,7 +10,8 @@ import SwiftUI
 
 struct ContentView: View {
     @StateObject private var viewModel = ViewModel()
-
+    @State private var showingTypes = false
+    
     var body: some View {
         if viewModel.isUnlocked {
             ZStack {
@@ -47,13 +48,13 @@ struct ContentView: View {
                             viewModel.addLocation()
                         } label: {
                             Image(systemName: "plus")
+                                .padding()
+                                .background(.black.opacity(0.75))
+                                .foregroundColor(.white)
+                                .font(.title)
+                                .clipShape(Circle())
+                                .padding(.trailing)
                         }
-                        .padding()
-                        .background(.black.opacity(0.75))
-                        .foregroundColor(.white)
-                        .font(.title)
-                        .clipShape(Circle())
-                        .padding(.trailing)
                     }
                 }
             }
