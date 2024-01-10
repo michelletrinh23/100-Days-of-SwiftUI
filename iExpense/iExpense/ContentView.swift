@@ -83,6 +83,7 @@ struct ContentView: View {
                 .sheet(isPresented: $showingAddExpense) {
                     AddView()
                 }
+            
         }
     }
 }
