@@ -10,6 +10,7 @@
 		D50B02102B721DC600825E7B /* SamplePackage in Frameworks */ = {isa = PBXBuildFile; productRef = D50B020F2B721DC600825E7B /* SamplePackage */; };
 		D50B02122B7221A000825E7B /* ProspectsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D50B02112B7221A000825E7B /* ProspectsView.swift */; };
 		D50B02142B7221B200825E7B /* MeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D50B02132B7221B200825E7B /* MeView.swift */; };
+		D50B02162B7224D100825E7B /* Prospect.swift in Sources */ = {isa = PBXBuildFile; fileRef = D50B02152B7224D100825E7B /* Prospect.swift */; };
 		D5CD00512B5B562000AE8C8C /* HotProspectsApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5CD00502B5B562000AE8C8C /* HotProspectsApp.swift */; };
 		D5CD00532B5B562000AE8C8C /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5CD00522B5B562000AE8C8C /* ContentView.swift */; };
 		D5CD00552B5B562100AE8C8C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D5CD00542B5B562100AE8C8C /* Assets.xcassets */; };
@@ -39,6 +40,7 @@
 /* Begin PBXFileReference section */
 		D50B02112B7221A000825E7B /* ProspectsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProspectsView.swift; sourceTree = "<group>"; };
 		D50B02132B7221B200825E7B /* MeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeView.swift; sourceTree = "<group>"; };
+		D50B02152B7224D100825E7B /* Prospect.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Prospect.swift; sourceTree = "<group>"; };
 		D5CD004D2B5B562000AE8C8C /* HotProspects.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HotProspects.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D5CD00502B5B562000AE8C8C /* HotProspectsApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HotProspectsApp.swift; sourceTree = "<group>"; };
 		D5CD00522B5B562000AE8C8C /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -102,6 +104,7 @@
 			children = (
 				D5CD00502B5B562000AE8C8C /* HotProspectsApp.swift */,
 				D5CD00522B5B562000AE8C8C /* ContentView.swift */,
+				D50B02152B7224D100825E7B /* Prospect.swift */,
 				D50B02112B7221A000825E7B /* ProspectsView.swift */,
 				D50B02132B7221B200825E7B /* MeView.swift */,
 				D5CD00542B5B562100AE8C8C /* Assets.xcassets */,
@@ -272,6 +275,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				D50B02142B7221B200825E7B /* MeView.swift in Sources */,
+				D50B02162B7224D100825E7B /* Prospect.swift in Sources */,
 				D50B02122B7221A000825E7B /* ProspectsView.swift in Sources */,
 				D5CD00532B5B562000AE8C8C /* ContentView.swift in Sources */,
 				D5CD00512B5B562000AE8C8C /* HotProspectsApp.swift in Sources */,
