@@ -11,13 +11,20 @@ import UserNotifications
 struct ContentView: View {
 
     var body: some View {
-        Image("example")
-            .interpolation(.none)
-            .resizable()
-            .scaledToFit()
-            .frame(maxHeight: .infinity)
-            .background(.black)
-            .ignoresSafeArea()
+        List {
+            Text("Taylor Swift")
+                .swipeActions {
+                    Button("Delete", systemImage: "minus.circle", role: .destructive) {
+                        print("Deleting")
+                    }
+                }
+                .swipeActions(edge: .leading) {
+                    Button("Pin", systemImage: "pin") {
+                        print("Pinning")
+                    }
+                    .tint(.orange)
+                }
+        }
     }
 }
 
