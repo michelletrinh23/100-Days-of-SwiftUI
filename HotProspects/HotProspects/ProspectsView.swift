@@ -36,17 +36,21 @@ struct ProspectsView: View {
     var body: some View {
         NavigationStack {
             List(prospects, selection: $selectedProspects) { prospect in
-                HStack {
-                    VStack(alignment: .leading) {
-                        Text(prospect.name)
-                            .font(.headline)
-                        Text(prospect.emailAddress)
-                            .foregroundColor(.secondary)
-                    }
-
-                    if filter == .none && prospect.isContacted {
-                        Spacer()
-                        Image(systemName: "checkmark.circle.fill")
+                NavigationLink {
+                    EditingView(prospect: prospect)
+                } label: {
+                    HStack {
+                        VStack(alignment: .leading) {
+                            Text(prospect.name)
+                                .font(.headline)
+                            Text(prospect.emailAddress)
+                                .foregroundColor(.secondary)
+                        }
+                        
+                        if filter == .none && prospect.isContacted {
+                            Spacer()
+                            Image(systemName: "checkmark.circle.fill")
+                        }
                     }
                 }
                 .swipeActions {
@@ -95,7 +99,9 @@ struct ProspectsView: View {
                 .sheet(isPresented: $isShowingScanner) {
                     CodeScannerView(codeTypes: [.qr], simulatedData: "Paul Hudson\npaul@hackingwithswift.com", completion: handleScan)
                 }
-
+                .onAppear {
+                    selectedProspects = []
+                }
         }
     }
     
