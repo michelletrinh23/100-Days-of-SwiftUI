@@ -34,86 +34,86 @@ struct ProspectsView: View {
     }
     
     var body: some View {
-        NavigationStack {
-            List(prospects, selection: $selectedProspects) { prospect in
-                NavigationLink {
-                    EditingView(prospect: prospect)
-                } label: {
-                    HStack {
-                        VStack(alignment: .leading) {
-                            Text(prospect.name)
-                                .font(.headline)
-                            Text(prospect.emailAddress)
-                                .foregroundColor(.secondary)
-                        }
-                        
-                        if filter == .none && prospect.isContacted {
-                            Spacer()
-                            Image(systemName: "checkmark.circle.fill")
-                        }
-                    }
-                }
-                .swipeActions {
-                    Button("Delete", systemImage: "trash", role: .destructive) {
-                        modelContext.delete(prospect)
+        List(prospects, selection: $selectedProspects) { prospect in
+            NavigationLink {
+                EditingView(prospect: prospect)
+            } label: {
+                HStack {
+                    VStack(alignment: .leading) {
+                        Text(prospect.name)
+                            .font(.headline)
+                        Text(prospect.emailAddress)
+                            .foregroundColor(.secondary)
                     }
                     
-                    if prospect.isContacted {
-                        Button("Mark Uncontacted", systemImage: "person.crop.circle.badge.xmark") {
-                            prospect.isContacted.toggle()
-                        }
-                        .tint(.blue)
-                    } else {
-                        Button("Mark Contacted", systemImage: "person.crop.circle.fill.badge.checkmark") {
-                            prospect.isContacted.toggle()
-                        }
-                        .tint(.green)
-                        
-                        Button("Remind Me", systemImage: "bell") {
-                            addNotification(for: prospect)
-                        }
-                        .tint(.orange)
-                        
+                    if filter == .none && prospect.isContacted {
+                        Spacer()
+                        Image(systemName: "checkmark.circle.fill")
                     }
                 }
-                .tag(prospect)
             }
-                .navigationTitle(title)
-                .toolbar {
-                    ToolbarItem(placement: .topBarTrailing) {
-                        Button("Scan", systemImage: "qrcode.viewfinder") {
-                            isShowingScanner = true
-                        }
+            .swipeActions {
+                Button("Delete", systemImage: "trash", role: .destructive) {
+                    modelContext.delete(prospect)
+                }
+                
+                if prospect.isContacted {
+                    Button("Mark Uncontacted", systemImage: "person.crop.circle.badge.xmark") {
+                        prospect.isContacted.toggle()
                     }
+                    .tint(.blue)
+                } else {
+                    Button("Mark Contacted", systemImage: "person.crop.circle.fill.badge.checkmark") {
+                        prospect.isContacted.toggle()
+                    }
+                    .tint(.green)
                     
-                    ToolbarItem(placement: .topBarLeading) {
-                        EditButton()
+                    Button("Remind Me", systemImage: "bell") {
+                        addNotification(for: prospect)
                     }
+                    .tint(.orange)
                     
-                    if selectedProspects.isEmpty == false {
-                        ToolbarItem(placement: .bottomBar) {
-                            Button("Delete Selected", action: delete)
-                        }
-                    }
                 }
-                .sheet(isPresented: $isShowingScanner) {
-                    CodeScannerView(codeTypes: [.qr], simulatedData: "Paul Hudson\npaul@hackingwithswift.com", completion: handleScan)
-                }
-                .onAppear {
-                    selectedProspects = []
-                }
+            }
+            .tag(prospect)
         }
+            .navigationTitle(title)
+            .toolbar {
+                ToolbarItem(placement: .topBarTrailing) {
+                    Button("Scan", systemImage: "qrcode.viewfinder") {
+                        isShowingScanner = true
+                    }
+                }
+                
+                ToolbarItem(placement: .topBarLeading) {
+                    EditButton()
+                }
+                
+                if selectedProspects.isEmpty == false {
+                    ToolbarItem(placement: .bottomBar) {
+                        Button("Delete Selected", action: delete)
+                    }
+                }
+            }
+            .sheet(isPresented: $isShowingScanner) {
+                CodeScannerView(codeTypes: [.qr], simulatedData: "Paul Hudson\npaul@hackingwithswift.com", completion: handleScan)
+            }
+            .onAppear {
+                selectedProspects = []
+            }
     }
     
-    init(filter: FilterType) {
+    init(filter: FilterType, sort: SortDescriptor<Prospect>) {
         self.filter = filter
 
         if filter != .none {
             let showContactedOnly = filter == .contacted
-
+            
             _prospects = Query(filter: #Predicate {
                 $0.isContacted == showContactedOnly
-            }, sort: [SortDescriptor(\Prospect.name)])
+            }, sort: [sort])
+        } else {
+            _prospects = Query(sort: [sort])
         }
     }
     
@@ -174,6 +174,6 @@ struct ProspectsView: View {
 }
 
 #Preview {
-    ProspectsView(filter: .none)
+    ProspectsView(filter: .none, sort: SortDescriptor(\Prospect.name))
         .modelContainer(for: Prospect.self)
 }
