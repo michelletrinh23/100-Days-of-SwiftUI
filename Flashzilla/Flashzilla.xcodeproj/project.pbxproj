@@ -16,6 +16,7 @@
 		D50B024A2B8B0D9000825E7B /* FlashzillaUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D50B02492B8B0D9000825E7B /* FlashzillaUITestsLaunchTests.swift */; };
 		D50B02572B8DDF5300825E7B /* Card.swift in Sources */ = {isa = PBXBuildFile; fileRef = D50B02562B8DDF5300825E7B /* Card.swift */; };
 		D50B02592B8DE02C00825E7B /* CardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D50B02582B8DE02C00825E7B /* CardView.swift */; };
+		D50B025B2B92A46A00825E7B /* EditCards.swift in Sources */ = {isa = PBXBuildFile; fileRef = D50B025A2B92A46A00825E7B /* EditCards.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -48,6 +49,7 @@
 		D50B02492B8B0D9000825E7B /* FlashzillaUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlashzillaUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		D50B02562B8DDF5300825E7B /* Card.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Card.swift; sourceTree = "<group>"; };
 		D50B02582B8DE02C00825E7B /* CardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardView.swift; sourceTree = "<group>"; };
+		D50B025A2B92A46A00825E7B /* EditCards.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditCards.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -101,6 +103,7 @@
 				D50B022C2B8B0D8E00825E7B /* FlashzillaApp.swift */,
 				D50B022E2B8B0D8E00825E7B /* ContentView.swift */,
 				D50B02562B8DDF5300825E7B /* Card.swift */,
+				D50B025A2B92A46A00825E7B /* EditCards.swift */,
 				D50B02582B8DE02C00825E7B /* CardView.swift */,
 				D50B02302B8B0D9000825E7B /* Assets.xcassets */,
 				D50B02322B8B0D9000825E7B /* Preview Content */,
@@ -266,6 +269,7 @@
 				D50B022F2B8B0D8E00825E7B /* ContentView.swift in Sources */,
 				D50B02572B8DDF5300825E7B /* Card.swift in Sources */,
 				D50B02592B8DE02C00825E7B /* CardView.swift in Sources */,
+				D50B025B2B92A46A00825E7B /* EditCards.swift in Sources */,
 				D50B022D2B8B0D8E00825E7B /* FlashzillaApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
