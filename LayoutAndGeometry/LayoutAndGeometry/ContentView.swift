@@ -21,7 +21,7 @@ struct ContentView: View {
                             .background(colors[index % 7])
                             .rotation3DEffect(.degrees(proxy.frame(in: .global).minY - fullView.size.height / 2) / 5, axis: (x: 0, y: 1, z: 0))
                             .opacity(proxy.frame(in: .global).minY / 200)
-
+                            .scaleEffect(max(0.5, proxy.frame(in: .global).minY / 400))
                     }
                     .frame(height: 40)
                 }
