@@ -7,23 +7,23 @@
 
 import SwiftUI
 
-struct ContentView: View {
-    var body: some View {
-        NavigationView {
-            NavigationLink {
-                Text("New secondary")
-            } label: {
-                Text("Hello, World!")
-            }
-            .navigationTitle("Primary")
-
-            Text("Secondary")
-            
-            Text("Tertiary")
-        }
-    }
+struct User: Identifiable {
+    var id = "Taylor Swift"
 }
 
+struct ContentView: View {
+    @State private var selectedUser: User? = nil
+    @State private var isShowingUser = false
+
+    var body: some View {
+        Text("Hello, World!")
+            .onTapGesture {
+                selectedUser = User()
+                isShowingUser = true
+            }
+            .alert("Welcome", isPresented: $isShowingUser) { }
+    }
+}
 
 #Preview {
     ContentView()
