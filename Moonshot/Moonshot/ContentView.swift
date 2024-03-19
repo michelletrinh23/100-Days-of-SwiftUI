@@ -62,13 +62,7 @@ struct ContentView: View {
             .background(.darkBackground)
             .preferredColorScheme(.dark)
             .toolbar {
-                ToolbarItem {
-                    NavigationLink {
-                        ContentListView()
-                    } label: {
-                        Text("Switch View")
-                    }
-                }
+                
             }
         }
         
