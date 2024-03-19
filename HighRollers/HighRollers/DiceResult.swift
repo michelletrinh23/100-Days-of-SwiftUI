@@ -12,6 +12,10 @@ struct DiceResult: Identifiable, Codable {
     var type: Int
     var number: Int
     var rolls = [Int]()
+    
+    var description: String {
+        rolls.map(String.init).joined(separator: ", ")
+    }
 
     init(type: Int, number: Int) {
         self.type = type
