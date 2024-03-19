@@ -19,6 +19,8 @@ struct ContentView: View {
         .init(.adaptive(minimum: 60))
     ]
 
+    let timer = Timer.publish(every: 0.1, on: .main, in: .common).autoconnect()
+    @State private var stoppedDice = 0
     
     var body: some View {
         NavigationStack {
@@ -49,13 +51,29 @@ struct ContentView: View {
                         }
                     }
                 }
+                .disabled(stoppedDice < currentResult.rolls.count)
             }
             .navigationTitle("High Rollers")
+            .onReceive(timer) { date in
+                updateDice()
+            }
         }
     }
     
     func rollDice() {
         currentResult = DiceResult(type: selectedDiceType, number: numberToRoll)
+        stoppedDice = -20
+    }
+    
+    func updateDice() {
+        guard stoppedDice < currentResult.rolls.count else { return }
+
+        for i in stoppedDice..<numberToRoll {
+            if i < 0 { continue }
+            currentResult.rolls[i] = Int.random(in: 1...selectedDiceType)
+        }
+
+        stoppedDice += 1
     }
 }
 
