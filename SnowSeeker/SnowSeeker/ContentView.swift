@@ -27,16 +27,19 @@ struct ContentView: View {
                             RoundedRectangle(cornerRadius: 5)
                                 .stroke(.black, lineWidth: 1)
                         )
-
+                    
                     VStack(alignment: .leading) {
                         Text(resort.name)
                             .font(.headline)
+                        
                         Text("\(resort.runs) runs")
                             .foregroundColor(.secondary)
                     }
                 }
             }
             .navigationTitle("Resorts")
+        } detail: {
+            WelcomeView()
         }
     }
 }
